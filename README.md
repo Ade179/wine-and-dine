@@ -128,15 +128,15 @@ To run the project, execute the following command:
 ## :telescope: Future Features <a name="future-features"></a>
 - **Enhance design.**
 - **Connect to the Database.**
-- **Add API endpoits.**
 - **Create Responsive Interface.**
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
 ## :handshake: Contributing <a name="contributing"></a>
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/Ridwanullahi-code/Recipe-App/issues).
+Feel free to check the [issues page](https://github.com/Ade179/wine-and-dine/issues/10).
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
