@@ -12,16 +12,44 @@ namespace :db do
 
     puts 'Creating sample users...'
 
-    User.create!(
+    test = User.create!(
       name: 'test',
       email: 'testuser@test.com',
       password: 'password',
       confirmed_at: Time.now
     )
 
+    5.times do
+      Food.create!(
+        name: Faker::Food.vegetables,
+        measurement_unit: Faker::Food.metric_measurement,
+        price: Faker::Number.number(digits: 2),
+        user_id: test.id
+      )
+    end
+
+    3.times do
+      Recipe.create!(
+        name: Faker::Food.dish,
+        preparation_time: Faker::Number.number(digits: 2),
+        cooking_time: Faker::Number.number(digits: 2),
+        description: Faker::Lorem.sentence,
+        public: Faker::Boolean.boolean,
+        user_id: test.id
+      )
+    end
+
+    3.times do
+      RecipeFood.create!(
+        quantity: Faker::Number.non_zero_digit,
+        food_id: Food.all.sample.id,
+        recipe_id: Recipe.all.sample.id
+      )
+    end
+
     # create sample users
     5.times do
-      User.create!(
+      user = User.create!(
         name: Faker::Name.name,
         email: Faker::Internet.email,
         password: 'password'
@@ -35,7 +63,7 @@ namespace :db do
           name: Faker::Food.vegetables,
           measurement_unit: Faker::Food.metric_measurement,
           price: Faker::Number.number(digits: 2),
-          user_id: User.all.sample.id
+          user_id: user.id
         )
       end
 
@@ -49,7 +77,7 @@ namespace :db do
           cooking_time: Faker::Number.number(digits: 2),
           description: Faker::Lorem.sentence,
           public: Faker::Boolean.boolean,
-          user_id: User.all.sample.id
+          user_id: user.id
         )
       end
 

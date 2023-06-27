@@ -1,10 +1,12 @@
 class FoodsController < ApplicationController
   def new
     @food = Food.new
+    @user = current_user
   end
 
   def index
     @foods = current_user.foods
+    @user = current_user
   end
 
   def show
