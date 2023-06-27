@@ -2,7 +2,8 @@
 <h1 class="recipes_header">Foods</h1>
 
 <div id="foods">
- <button><%= link_to "Add food", new_food_path, class: "add-food" %> </button>
+  <button><%= link_to "Add food", new_food_path, class: "add-food" %>
+  </button>
   <table>
     <thead>
       <tr>
@@ -19,6 +20,7 @@
   </table>
 </div>
 
-
-
-<%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "destroy" %>
+<%= button_to "Sign out",
+destroy_user_session_path,
+method: :delete,
+class: "destroy" %>
