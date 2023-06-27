@@ -48,6 +48,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true)
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.toggle!(:public)
+    redirect_to recipe_path(@recipe)
+  end
+
   private
 
   def recipe_params

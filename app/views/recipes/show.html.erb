@@ -17,13 +17,14 @@
   <div class="recipe-info">
     <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation_time %> min(s)</h3>
 
-    <div class="public">
-      <% if @recipe.public %>
-        <p>Public <i class=""></i></p>
-      <% elsif !@recipe.public %>
-        <p class="public-p"><%= @recipe.public %><i class=""></i></p>
-      <% end %>
-    </div>
+<div class="public">
+  <% if @recipe.user_id == @user.id %>
+    <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, class: "form-public" do |f| %>
+      <%= f.label :public, "Public", class: "label-public" %>
+      <%= f.check_box :public, class: "public-checkbox", checked: @recipe.public, onclick: "this.form.submit();" %>
+    <% end %>
+  <% end %>
+</div>
 
     <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking_time %> min(s)</h3>
   </div>
