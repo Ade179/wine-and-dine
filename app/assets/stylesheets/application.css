@@ -26,8 +26,8 @@
   color: #3c763d;
 }
 
-/* Error flash message */
-.error {
+/* Alert flash message */
+.alert {
   background-color: #f2dede;
   color: #a94442;
 }
