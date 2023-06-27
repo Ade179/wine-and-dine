@@ -13,32 +13,28 @@
  *= require_tree .
  *= require_self
  */
-/* Flash messages container */
+
 .flash {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
 }
 
-/* Success flash message */
 .success {
   background-color: #dff0d8;
   color: #3c763d;
 }
 
-/* Alert flash message */
 .alert {
   background-color: #f2dede;
   color: #a94442;
 }
 
-/* Notice flash message */
 .notice {
   background-color: #d9edf7;
   color: #31708f;
 }
 
-/* Warning flash message */
 .warning {
   background-color: #fcf8e3;
   color: #8a6d3b;
