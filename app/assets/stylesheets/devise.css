@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.devise-login-button{
+.devise-login-button {
   margin-bottom: 20px;
   width: 100%;
   padding: 10px;
@@ -20,6 +20,16 @@
   cursor: pointer;
 }
 
-.devise-login-button:hover {
+
+.devise-logout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff1001;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.devise-login-button:hover, .devise-logout-button:hover {
   text-decoration: underline;
 }
