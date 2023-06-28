@@ -1,5 +1,5 @@
 <tr>
-  <td class=""> <%= recipe_food.food.name %></td>
-  <td class=""><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
-  <td class=""><%= number_to_currency(recipe_food.food.price * recipe_food.quantity) %></td>
+  <td class=""> <%= recipe_food[1].food.name %></td>
+  <td class=""><%= recipe_food[1].quantity %> <%= recipe_food[1].food.measurement_unit %></td>
+  <td class=""><%= number_to_currency(recipe_food[1].food.price * recipe_food[1].quantity) %></td>
 </tr>

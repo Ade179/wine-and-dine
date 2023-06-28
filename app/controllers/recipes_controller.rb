@@ -57,15 +57,30 @@ class RecipesController < ApplicationController
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes
-    @foods = []
+    @foods = {}
 
+    # make foods like
+    # {
+    #  name: recipe_food Object
+    # }
+    # add quantities for same food
     @recipes.each do |recipe|
       recipe.recipe_foods.each do |recipe_food|
-        @foods << recipe_food
+        if @foods.key?(recipe_food.food.name)
+          @foods[recipe_food.food.name].quantity += recipe_food.quantity
+        else
+          @foods[recipe_food.food.name] = recipe_food
+        end
       end
     end
 
-    puts @foods.inspect
+    puts @foods
+
+    # @recipes.each do |recipe|
+    #   recipe.recipe_foods.each do |recipe_food|
+    #     @foods << recipe_food
+    #   end
+    # end
 
     render 'shopping-list/index'
   end
