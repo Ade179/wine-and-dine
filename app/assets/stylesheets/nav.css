@@ -1,4 +1,4 @@
-.nav-partial{
+.nav-partial {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   padding: 0 20px;
 }
 
-.links{
+.links {
   display: flex;
   gap: 20px;
 }

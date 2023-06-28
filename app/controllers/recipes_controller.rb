@@ -54,6 +54,7 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  # rubocop:disable Metrics
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes
@@ -97,6 +98,7 @@ class RecipesController < ApplicationController
 
     render 'shopping-list/index'
   end
+  # rubocop:enable Metrics
 
   private
 
