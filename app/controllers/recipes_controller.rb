@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @foods = Food.all
+    @foods_to_buy = Food.all
     @recipe.recipe_foods.build
     @user = current_user
   end
@@ -57,30 +57,43 @@ class RecipesController < ApplicationController
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes
-    @foods = {}
+    @foods_to_buy = {}
+    @inventory = @user.foods
 
-    # make foods like
-    # {
-    #  name: recipe_food Object
-    # }
-    # add quantities for same food
+    # @recipes.each do |recipe|
+    #   recipe.recipe_foods.each do |recipe_food|
+    #     if @foods_to_buy.key?(recipe_food.food.name)
+    #       @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
+    #     else
+    #       @foods_to_buy[recipe_food.food.name] = recipe_food
+    #     end
+    #   end
+    # end
+    #
+    # subtract inventory from shopping list
     @recipes.each do |recipe|
       recipe.recipe_foods.each do |recipe_food|
-        if @foods.key?(recipe_food.food.name)
-          @foods[recipe_food.food.name].quantity += recipe_food.quantity
+        if @foods_to_buy.key?(recipe_food.food.name)
+          @foods_to_buy[recipe_food.food.name].quantity += recipe_food.quantity
         else
-          @foods[recipe_food.food.name] = recipe_food
+          @foods_to_buy[recipe_food.food.name] = recipe_food
         end
       end
     end
 
-    puts @foods
+    puts 'Foods to buy: '
+    @foods_to_buy.each do |key, value|
+      puts "#{key}: #{value.quantity}"
+    end
 
-    # @recipes.each do |recipe|
-    #   recipe.recipe_foods.each do |recipe_food|
-    #     @foods << recipe_food
-    #   end
-    # end
+    @inventory.each do |inventory_food|
+      @foods_to_buy[inventory_food.name].quantity -= inventory_food.quantity if @foods_to_buy.key?(inventory_food.name)
+    end
+
+    # remove foods with quantity <= 0
+    @foods_to_buy.each do |key, value|
+      @foods_to_buy.delete(key) if value.quantity <= 0
+    end
 
     render 'shopping-list/index'
   end

@@ -24,11 +24,12 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = current_user.foods.find(params[:id])
+    @food.quantity = 0
 
-    if @food.destroy
-      flash[:success] = 'Food was successfully deleted.'
+    if @food.save
+      flash[:success] = 'Quantity updated!'
     else
-      flash[:error] = 'Failed to delete food.'
+      flash[:error] = 'Error updating quantity!'
     end
     redirect_to foods_path
   end
