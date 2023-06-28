@@ -54,6 +54,22 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  def general_shopping_list
+    @user = current_user
+    @recipes = @user.recipes
+    @foods = []
+
+    @recipes.each do |recipe|
+      recipe.recipe_foods.each do |recipe_food|
+        @foods << recipe_food
+      end
+    end
+
+    puts @foods.inspect
+
+    render 'shopping-list/index'
+  end
+
   private
 
   def recipe_params
