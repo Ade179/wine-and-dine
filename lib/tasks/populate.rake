@@ -1,4 +1,5 @@
 require 'faker'
+I18n.reload!
 
 namespace :db do
   desc 'Fill database with sample data'
@@ -22,8 +23,9 @@ namespace :db do
     5.times do
       Food.create!(
         name: Faker::Food.vegetables,
-        measurement_unit: Faker::Food.metric_measurement,
-        price: Faker::Number.number(digits: 2),
+        measurement_unit: 'kg',
+        price: Faker::Number.non_zero_digit,
+        quantity: Faker::Number.non_zero_digit,
         user_id: test.id
       )
     end
@@ -61,8 +63,9 @@ namespace :db do
       5.times do
         Food.create!(
           name: Faker::Food.vegetables,
-          measurement_unit: Faker::Food.metric_measurement,
-          price: Faker::Number.number(digits: 2),
+          measurement_unit: 'kg',
+          price: Faker::Number.non_zero_digit,
+          quantity: Faker::Number.non_zero_digit,
           user_id: user.id
         )
       end
@@ -75,7 +78,7 @@ namespace :db do
           name: Faker::Food.dish,
           preparation_time: Faker::Number.number(digits: 2),
           cooking_time: Faker::Number.number(digits: 2),
-          description: Faker::Lorem.sentence,
+          description: Faker::Lorem.paragraph,
           public: Faker::Boolean.boolean,
           user_id: user.id
         )
