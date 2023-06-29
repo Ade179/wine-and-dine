@@ -90,4 +90,13 @@ form:not(.edit_recipe) {
   border: 1px solid #ccc;
   margin: 10px auto;
   padding: 10px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.recipe-name-and-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
