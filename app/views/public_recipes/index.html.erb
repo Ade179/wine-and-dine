@@ -1,0 +1,22 @@
+<%= render "shared/nav", user: @user %>
+<section class="recipes public">
+  <% if @recipes.empty? %>
+    <p class="empty-recipes">No public recipes.</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="recipe-desc slow">
+          <div class="foodownercombo">
+            <h4 class="nav-links"><%= link_to recipe.name, recipe_path(recipe) %></h4>
+            <p class="usernames">By:
+              <%= recipe.user.name %></p>
+          </div>
+          <br>
+
+        </div>
+        <div class="recipe-title-delete">
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>
