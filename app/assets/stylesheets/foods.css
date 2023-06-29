@@ -45,7 +45,7 @@ form:not(.edit_recipe) {
   gap: 5px;
 }
 
-.foods-add-button{
+.foods-add-button {
   padding: 10px;
   margin-bottom: 10px;
   background-color: #1e90ff;
@@ -65,3 +65,6 @@ form:not(.edit_recipe) {
   text-decoration: underline;
 }
 
+.cancel-link {
+  text-align: center;
+}
