@@ -68,3 +68,8 @@ form:not(.edit_recipe) {
 .cancel-link {
   text-align: center;
 }
+
+.recipe-input{
+  width: -webkit-fill-available;
+  margin-bottom: 10px;
+}
