@@ -70,7 +70,7 @@ form:not(.edit_recipe) {
 }
 
 .recipe-input {
-  width: -webkit-fill-available;
+  width: -webkit-fill-available; /* stylelint-disable-line */
   margin-bottom: 10px;
 }
 
