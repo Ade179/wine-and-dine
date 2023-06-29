@@ -69,12 +69,12 @@ form:not(.edit_recipe) {
   text-align: center;
 }
 
-.recipe-input{
+.recipe-input {
   width: -webkit-fill-available;
   margin-bottom: 10px;
 }
 
-.recipe-delete-button{
+.recipe-delete-button {
   background-color: #ff1001;
   color: white;
   border: none;
@@ -86,8 +86,8 @@ form:not(.edit_recipe) {
   align-self: flex-end;
 }
 
-.each-recipe{
+.each-recipe {
   border: 1px solid #ccc;
-  margin:10px auto;
+  margin: 10px auto;
   padding: 10px;
 }
