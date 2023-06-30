@@ -85,5 +85,4 @@ test:
 production:
   <<: *default
   database: wine_and_dine_production
-  username: wine_and_dine
-  password: <%= ENV["WINE_AND_DINE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
